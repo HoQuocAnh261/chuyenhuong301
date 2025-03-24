@@ -4,7 +4,7 @@ export default {
 
     // Kiểm tra Facebook App trên Mobile
     if (/FBAN|FBAV/i.test(userAgent) && /Android|iPhone|iPad|iPod/i.test(userAgent)) {
-      return Response.redirect("https://lfb.ink/031225", 301);
+      return Response.redirect("https://s.shopee.vn/40ScqqJ2cc", 301);
     }
     
     // Chuyển hướng mặc định
